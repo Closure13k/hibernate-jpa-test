@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+
+    <persistence-unit name="GestorPersistencia">
+        <!-- Representamos las clases -->
+        <class>modelo.Departamento</class>
+        <!--
+            Propiedades
+        -->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.56.104:3306/ejemplo" />
+            <property name="javax.persistence.jdbc.user" value="usuario" />
+            <property name="javax.persistence.jdbc.password" value="abc123." />
+            <!--
+            Dialectos de hibernate:
+                https://docs.jboss.org/hibernate/orm/5.2/javadocs/org/hibernate/dialect/package-summary.html
+            Copiamos la ruta completa de la clase:
+            -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <!--
+            hibernate.hbm2ddl.auto:
+            Automatically validates or exports schema DDL to the database when
+            the SessionFactory is created. With create-drop, the database schema
+            will be dropped when the SessionFactory is closed explicitly.
+            e.g. 
+                    validate | update | create | create-drop
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
+        </properties>
+    </persistence-unit>
+            
+</persistence>
